@@ -34,4 +34,24 @@ function init_session(array $data){
         $ci->session->set_userdata($key, $val);
         
 }
+
+
+// to redirect automatically when authentication in set
+function check_auth(bool $on_login_page = FALSE){
+    $ci = &get_instance();
+
+    $admin_id = $ci->session->userdata('ADMIN_ID');
+    $admin_email = $ci->session->userdata('ADMIN_EMAIL');
+
+    $AUTH = $admin_id != null && $admin_email != null? TRUE: FALSE; 
+
+    if($AUTH && $on_login_page)
+        redirect(base_url('/admin/dashboard'));
+
+    if(!$AUTH && !$on_login_page)
+        redirect(base_url('/admin'));
+
+}
+        
+
     

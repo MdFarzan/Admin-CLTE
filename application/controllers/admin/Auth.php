@@ -20,6 +20,7 @@ class Auth extends CI_Controller{
     // for authentication 
     public function index(){
         
+        check_auth(TRUE);
 
         if($this->input->method() == 'post'){
 

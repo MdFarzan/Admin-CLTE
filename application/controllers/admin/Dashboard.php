@@ -6,13 +6,15 @@
 
 defined('BASEPATH') || exit('Direct script access not allowed!');
 
-class Dashboard extends CI_Controller{  
+class Dashboard extends MY_Controller{  
+
+    public function __construct(){
+        parent::__construct();
+    }
 
     public function index(){
         echo "Dashboard";
-        $this->load->library('session');
         var_dump($_SESSION);
-                        die();
     }
 
 }
