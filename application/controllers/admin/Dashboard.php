@@ -13,8 +13,13 @@ class Dashboard extends MY_Controller{
     }
 
     public function index(){
-        echo "Dashboard";
-        var_dump($_SESSION);
+        
+        $this->page_data['page_title'] = 'Dashboard';
+
+        $this->load->view('admin/partials/header.php', $this->page_data);
+        $this->load->view('admin/partials/sidenav.php');
+        $this->load->view('admin/dashboard.php');
+        $this->load->view('admin/partials/footer.php');
     }
 
 }
