@@ -1,0 +1,16 @@
+/* 
+    adminlte.css
+    contains only customization of admin lte styling
+*/
+
+.profile-avtar{
+    border-radius:50%;
+    width:90px;
+    height:90px;
+    overflow:hidden;
+    margin:0 auto;
+  }
+
+  .admin-title{
+    color:#000;
+  }
