@@ -14,3 +14,7 @@
   .admin-title{
     color:#000;
   }
+
+  .text-danger.file-error+p {
+    color: red;
+  }

@@ -44,6 +44,7 @@
               </p>
             </a>
           </li>
+          
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -73,6 +74,24 @@
               <p>
                 Simple Link
                 <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url('/admin/profile'); ?>"
+               class="nav-link <?php echo $current_menu=='profile'?' active':''; ?>">
+               <i class="nav-icon fas fa-user-alt"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url('/admin/logout'); ?>"
+               class="nav-link">
+               <i class="nav-icon fas fa-sign-out-alt" style="transform:rotate(-180deg);"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>
