@@ -36,11 +36,14 @@ class Auth extends CI_Controller{
 
                     if(password_verify($password, $data['passkey'])){
                         // password matched
+                        
+                        $avtar = $data['avtar']!=null?$data['avtar']:PUBLIC_DIR.'avtars/default.png';
 
                         $session_data = [
                             'ADMIN_ID' => $data['id'],
                             'ADMIN_EMAIL' => $data['email'],
-                            'ADMIN_NAME' => $data['name']
+                            'ADMIN_NAME' => $data['name'],
+                            'ADMIN_AVTAR' => base_url($avtar)
                         ];
 
                         init_session($session_data);

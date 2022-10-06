@@ -45,15 +45,15 @@
           <i class="fas fa-user"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-1">
-
           <div class="profile-avtar">
-            <img src="http://localhost/quizzer/assets/dist/img/user2-160x160.jpg" class="img-fluid" alt="profile" /> 
+            
+            <img src="<?php echo $this->session->userdata('ADMIN_AVTAR') ?>" class="img-fluid" alt="profile" /> 
           </div>
           <span class="h-6 dropdown-item dropdown-header">
             <h5 class="mb-1 lead admin-title">Hello, <?php echo $this->session->userdata('ADMIN_NAME') !=null ?$this->session->userdata('ADMIN_NAME'): 'Super Admin' ?></h5>
           </span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="<?php echo base_url('/admin/profile'); ?>" class="dropdown-item <?php echo $current_menu=='profile'?' active':''; ?>">
           <i class="fas fa-user-cog mr-2"></i> Profile Setting
           </a>
           <div class="dropdown-divider"></div>
