@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 // specific route for admin entry & exit
 $route['admin'] = 'admin/Auth/index';
 $route['admin/logout'] = 'admin/Auth/logout';
+$route['admin/forget-password'] = 'admin/Auth/forget_password';
+$route['admin/password-reset'] = 'admin/Auth/password_reset';

@@ -87,3 +87,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 /* USER DEFINE CONSTANTS */
 defined('PUBLIC_DIR') OR define('PUBLIC_DIR','assets/');
+defined('PASS_RECOVERY_EMAIL') OR define('PASS_RECOVERY_EMAIL','');
+defined('PASS_RECOVERY_PASSKEY') OR define('PASS_RECOVERY_PASSKEY','');
