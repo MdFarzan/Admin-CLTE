@@ -19,13 +19,37 @@ $config = array(
             'field' => 'captcha-code',
             'label' => 'Captcha',
             'rules' => 'required|callback_captcha_check',
-            'errors'=> array(
-                'captcha_check' => 'Enter a valid captcha!'
-            )
         ),
 
     ),
 
+    'admin_password_recovery' => array(
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|trim|valid_email|callback_is_email_exists'
+            
+            
+        ),
+
+        array(
+            'field' => 'captcha-code',
+            'label' => 'Captcha',
+            'rules' => 'required|callback_captcha_check',
+        ),
+
+    ),
+
+    'admin_password_reset' => array(
+        array(   'field' => 'password',
+            'label' => 'Password',
+            'rules' => 'required|min_length[6]|max_length[15]'
+        ),
+        array(   'field' => 'otp',
+            'label' => 'OTP',
+            'rules' => 'required|callback_valid_otp'
+        ),
+    ),
     
                 
 );
