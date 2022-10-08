@@ -25,7 +25,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                                 </div>
-                                <input type="email" name="email" value="<?php echo set_value('email') ?>" class="form-control" placeholder="Email" />
+                                <input type="email" name="email" value="<?php echo set_value('email') ?>" class="form-control" placeholder="Email" required />
                             </div>
                         <?php echo form_error('email'); ?>
                         </div>
@@ -35,7 +35,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-key"></i></div>
                                 </div>
-                                <input type="password" name="password" value="<?php echo set_value('password') ?>" class="form-control" placeholder="Password" />
+                                <input type="password" name="password" value="<?php echo set_value('password') ?>" class="form-control" placeholder="Password" required />
                             </div>
                             <?php echo form_error('password') ?>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="">
                             <div class="d-flex">
                                 <?php echo $captcha_img; ?>
-                                <input type="text" name="captcha-code" value="<?php echo set_value('captcha-code') ?>" class="form-control captcha-code" placeholder="Captcha" />
+                                <input type="text" name="captcha-code" value="<?php echo set_value('captcha-code') ?>" class="form-control captcha-code" placeholder="Captcha" required />
                             </div>
                             <?php echo form_error('captcha-code'); ?>
                         </div>
