@@ -1,4 +1,5 @@
 # Admin CLTE
+!['admin-panel-screenshot'](screenshot.png)
 Admin CLTE is a single user, Admin LTE based admin panel built using Codeigniter 3 Framework.
 
 ## Features
