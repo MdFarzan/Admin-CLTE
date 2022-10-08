@@ -15,10 +15,19 @@ class Auth extends CI_Controller{
         $this->load->library('session');
         $this->load->library('form_validation');
         $this->load->model('admin/auth_model');
+        $this->load->model('admin/site_model');
     }
 
     // for authentication 
     public function index(){
+
+        $SITE_SETTINGS = $this->site_model->get_site_settings();
+        $SITE_SETTINGS['big_logo_src'] = $SITE_SETTINGS['big_logo_src']!=null ? $SITE_SETTINGS['big_logo_src'] : 'assets/default-branding/big-logo-default.png';
+        $SITE_SETTINGS['logo_icon_src'] = $SITE_SETTINGS['logo_icon_src'] !=null ? $SITE_SETTINGS['logo_icon_src'] : 'assets/default-branding/logo-icon-default.png';
+        $SITE_SETTINGS['site_icon_src'] = $SITE_SETTINGS['site_icon_src'] !=null ? $SITE_SETTINGS['site_icon_src'] : 'assets/default-branding/site-icon-default.png';
+        $SITE_SETTINGS['title'] = $SITE_SETTINGS['title']!=null ? $SITE_SETTINGS['title'] : 'Admin CLTE';
+        $SITE_SETTINGS['tagline'] = $SITE_SETTINGS['tagline']!=null ? $SITE_SETTINGS['tagline'] : 'Developed by Md Farzan';
+        $this->session->set_userdata('SITE_SETTINGS', $SITE_SETTINGS);
         
         check_auth(TRUE);
 

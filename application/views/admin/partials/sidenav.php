@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?php echo base_url(); ?>" class="brand-link">
-      <img src="<?php echo base_url('assets/logo-mini.png'); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">QUIZZER</span>
+      <img src="<?php echo base_url($this->session->userdata('SITE_SETTINGS')['logo_icon_src']); ?>" alt="Admin CLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><?php echo $this->session->userdata('SITE_SETTINGS')['title'] ?></span>
     </a>
 
     <!-- Sidebar -->

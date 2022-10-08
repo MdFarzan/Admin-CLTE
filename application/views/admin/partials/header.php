@@ -1,9 +1,11 @@
+<?php $SITE_SETTINGS = $this->session->userdata('SITE_SETTINGS'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php echo 'Quizzer | '. $page_title; ?></title>
+  <title><?php echo $SITE_SETTINGS['title'] . ' | ' . $page_title; ?></title>
+  <link rel="short icon" href="<?php echo base_url($SITE_SETTINGS['site_icon_src']); ?>">    
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,7 +18,6 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
