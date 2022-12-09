@@ -58,7 +58,7 @@
           <i class="fas fa-user-cog mr-2"></i> Profile Setting
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="<?php echo base_url('admin/settings'); ?>" class="dropdown-item">
             <i class="fas fa-cogs mr-2"></i></i> Site Setting
           </a>
           <div class="dropdown-divider"></div>
