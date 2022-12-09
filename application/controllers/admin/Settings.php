@@ -10,9 +10,11 @@ class Settings extends MY_Controller{
     public function index(){
 
         $bigLogoError = $logoIconError = $siteIconError = '';
+        $site_settings = $this->site_model->get_site_settings();
 
         if($this->input->method() == 'post'){
-
+        
+        
             $data = [];
             $sys_title = trim($this->input->post('system-title'));
             $sys_tagline = trim($this->input->post('system-tagline'));
@@ -22,7 +24,6 @@ class Settings extends MY_Controller{
             $config['upload_path'] = PUBLIC_DIR.'/';
             $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = '2048';
-            $config['overwrite'] = TRUE;
 
             // if big logo exists
             if($_FILES['big-logo']['size'] > 0){
@@ -34,15 +35,18 @@ class Settings extends MY_Controller{
                         $bigLogoError = $this->upload->display_errors();
                 
                 else{
-                    $data['big_logo_src'] = PUBLIC_DIR.'/'. $this->upload->data()['file_name'];
-                    echo "Big logo uploaded";
+                    unlink($site_settings['big_logo_src']);
+
+                    $data['big_logo_src'] = PUBLIC_DIR. $this->upload->data()['file_name'];
                 }
                         
             }
             else{
                 $BIG_LOGO_FLAG = $this->input->post('flag-big-logo');
-                if($BIG_LOGO_FLAG == 1)
+                if($BIG_LOGO_FLAG == 1){
+                unlink($site_settings['big_logo_src']);
                   $data['big_logo_src'] = null;   
+                }
             }
 
 
@@ -57,15 +61,19 @@ class Settings extends MY_Controller{
                     $logoIconError = $this->upload->display_errors();
                 
                 else{
-                    $data['logo_icon_src'] = PUBLIC_DIR.'/'. $this->upload->data()['file_name'];
+                    unlink($site_settings['logo_icon_src']);
+                    $data['logo_icon_src'] = PUBLIC_DIR. $this->upload->data()['file_name'];
                 }
                         
             }
             else{
                 $LOGO_ICON_FLAG = $this->input->post('flag-logo-icon');
 
-                if($LOGO_ICON_FLAG == 1)
+                if($LOGO_ICON_FLAG == 1){
+                    unlink($site_settings['logo_icon_src']);
                     $data['logo_icon_src'] = null;   
+
+                }
             }
 
             // if site icon exists
@@ -79,7 +87,8 @@ class Settings extends MY_Controller{
                     $logoIconError = $this->upload->display_errors();
                 
                 else{
-                    $data['site_icon_src'] = PUBLIC_DIR.'/'. $this->upload->data()['file_name'];
+                    unlink($site_settings['site_icon_src']);
+                    $data['site_icon_src'] = PUBLIC_DIR. $this->upload->data()['file_name'];
                     
                 }
                         
@@ -87,8 +96,11 @@ class Settings extends MY_Controller{
             else{
 
                 $SITE_ICON_FLAG = $this->input->post('flag-site-icon');
-                if($SITE_ICON_FLAG == 1)
+                if($SITE_ICON_FLAG == 1){
+                    unlink($site_settings['site_icon_src']);
                     $data['site_icon_src'] = null;   
+                }
+                    
             }
 
             //  if no error then success
@@ -110,7 +122,6 @@ class Settings extends MY_Controller{
 
         }
 
-        $site_settings = $this->site_model->get_site_settings();
 
         $this->page_data['page_title'] = 'Settings';
         $this->page_data['parent_menu'] = null;
